@@ -18,15 +18,11 @@
  * 
  */
 
-var sectionOne = document.getElementById('section1');
-var sectionTwo = document.getElementById('section2');
-var sectionThree = document.getElementById('section3');
-var newSection = document.createElement('sectionNew');
 
 const navItems = document.getElementById('navbar__list');
 
 const myTextInput = document.getElementById('myTextInput');
-myTextInput.style = "float: right; height: 4.4em; width: 25em; texy-align: center";
+
 const newPost = document.querySelector('[id=section4]');
 const comments = document.getElementById('section-4');
 comments.style = "display: none"
@@ -34,44 +30,12 @@ comments.style = "display: none"
 const newSpanElem = document.createElement('p');
 
 const myButton = document.getElementById('myButton');
-myButton.style = "float: right; height: 5em; width: 25em";
 /** 
  * End Global Variables
  * Start Helper Functions
  * 
  */
 
-
-const node = document.createTextNode(myTextInput);
-newSpanElem.appendChild(node);
-/* 
-myButton.addEventListener('click', () => {
-    newPost.appendChild(newSpanElem);
-}) */
-
-myButton.addEventListener("click", () => {
-    newPost.insertAdjacentHTML('beforeend', myTextInput.value);
-    comments.style = "display: inline-block";
-})
-
-/*
-navItems.addEventListener('click', () => {
-    let sections = document.querySelectorAll('div');
-    for (i = 0; i < sections.length; i++) {
-        sections[i].style.backgroundColor = myTextInput.value;
-    }
-});
-*/
-
-// Styling section on mouseover
-
-sections.addEventListener('mouseenter', function() {
-    sections.style = "border: outset 1px grey; border-radius: 1em; box-shadow: 2px 2px 2px black";
-});
-
-sections.addEventListener('mouseleave', function() {
-    sections.style = "none";
-});
 
 // Smooth roolin - rollout nav
 var prevScrollpos = window.pageYOffset;
@@ -84,6 +48,44 @@ window.onscroll = function() {
     }
     prevScrollpos = currentScrollPos;
 }
+
+
+const node = document.createTextNode(myTextInput);
+newSpanElem.appendChild(node);
+
+myButton.addEventListener("click", () => {
+    newPost.insertAdjacentHTML('beforeend', myTextInput.value);
+    comments.style = "display: inline-block";
+})
+
+
+document.querySelector('p').addEventListener('mouseenter', () => {
+    let sections = document.querySelectorAll('div > p');
+    for (i = 0; i < sections.length; i++) {
+        sections[i].style = "border: outset 1px grey; border-radius: 1em; box-shadow: 1px 1px 1px black";
+    }
+});
+document.querySelector('div p').addEventListener('mouseleave', () => {
+    let sections = document.querySelectorAll('div > p');
+    for (i = 0; i < sections.length; i++) {
+        sections[i].style = "none";
+    }
+});
+
+
+
+
+// Styling section on mouseover
+
+sections.addEventListener('mouseenter', function() {
+    sections.style = "border: outset 1px grey; border-radius: 1em; box-shadow: 2px 2px 2px black";
+});
+
+sections.addEventListener('mouseleave', function() {
+    sections.style = "none";
+});
+
+
 
 
 

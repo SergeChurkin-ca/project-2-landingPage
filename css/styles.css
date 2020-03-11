@@ -60,7 +60,8 @@ a {
     font-size: 2em;
 }
 
-a:hover {
+a:hover,
+button:hover {
     font-weight: 400;
     color: whitesmoke;
     position: relative;
@@ -156,6 +157,60 @@ nav {
     top: 0;
     width: 100%;
     z-index: 5;
+}
+
+
+/* Forms and posting styles */
+
+.posting__container {
+    display: inline-flex;
+    flex-direction: column;
+    float: right;
+    width: 30%;
+}
+
+#myTextInput {
+    height: 40vh;
+}
+
+.posting__container input,
+textarea,
+button {
+    background-color: darkorange;
+    width: 130hv;
+    padding: 1em;
+    border: darkslategrey solid 0.1em;
+    border-radius: 0.4em;
+}
+
+button:active {
+    font-weight: 700;
+    bottom: 0.1em;
+    box-shadow: 0.3em 0.3em 0.3em grey;
+}
+
+textarea {
+    height: 7vh;
+    resize: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .posting__container {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: stretch;
+        padding: 0 5em;
+    }
+    .posting__container {
+        width: 80%;
+    }
+    textarea {
+        width: 115vh;
+    }
+    #myTextInput {
+        height: auto;
+    }
 }
 
 
