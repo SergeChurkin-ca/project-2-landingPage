@@ -28,6 +28,9 @@ const navItems = document.getElementById('navbar__list');
 const myTextInput = document.getElementById('myTextInput');
 myTextInput.style = "float: right; height: 4.4em; width: 25em; texy-align: center";
 const newPost = document.querySelector('[id=section4]');
+const comments = document.getElementById('section-4');
+comments.style = "display: none"
+
 const newSpanElem = document.createElement('p');
 
 const myButton = document.getElementById('myButton');
@@ -48,6 +51,7 @@ myButton.addEventListener('click', () => {
 
 myButton.addEventListener("click", () => {
     newPost.insertAdjacentHTML('beforeend', myTextInput.value);
+    comments.style = "display: inline-block";
 })
 
 /*
