@@ -21,18 +21,43 @@
 var sectionOne = document.getElementById('section1');
 var sectionTwo = document.getElementById('section2');
 var sectionThree = document.getElementById('section3');
+var newSection = document.createElement('sectionNew');
 
-let sections = document.querySelectorAll('div > p');
-let i;
-for (i = 0; i < sections.length; i++) {
-    sections[i].style.backgroundColor = 'orange';
-}
-/**
+const navItems = document.getElementById('navbar__list');
+
+const myTextInput = document.getElementById('myTextInput');
+myTextInput.style = "float: right; height: 4.4em; width: 25em; texy-align: center";
+const newPost = document.querySelector('[id=section4]');
+const newSpanElem = document.createElement('p');
+
+const myButton = document.getElementById('myButton');
+myButton.style = "float: right; height: 5em; width: 25em";
+/** 
  * End Global Variables
  * Start Helper Functions
  * 
  */
 
+
+const node = document.createTextNode(myTextInput);
+newSpanElem.appendChild(node);
+/* 
+myButton.addEventListener('click', () => {
+    newPost.appendChild(newSpanElem);
+}) */
+
+myButton.addEventListener("click", () => {
+    newPost.insertAdjacentHTML('beforeend', myTextInput.value);
+})
+
+/*
+navItems.addEventListener('click', () => {
+    let sections = document.querySelectorAll('div');
+    for (i = 0; i < sections.length; i++) {
+        sections[i].style.backgroundColor = myTextInput.value;
+    }
+});
+*/
 
 // Styling section on mouseover
 
@@ -44,7 +69,7 @@ sections.addEventListener('mouseleave', function() {
     sections.style = "none";
 });
 
-// Smooth roolin - roolout nav
+// Smooth roolin - rollout nav
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
