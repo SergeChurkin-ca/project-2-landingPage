@@ -18,6 +18,8 @@
  * 
  */
 
+const navbarMenu = document.getElementsByTagName('li'); // NAVBAR
+
 const newPost = document.querySelector('[id=section4]');
 const comments = document.getElementById('section-4');
 comments.style = "display: none"
@@ -26,11 +28,24 @@ const newSpanElem = document.createElement('p');
 
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
+const myButton = document.getElementById('myButton');
 
 const myPhotoInput = document.querySelector('#myPhotoInput').value;
-
-const myButton = document.getElementById('myButton');
 const buttonPhoto = document.getElementById('buttonPhoto');
+
+
+const listSectors = document.querySelectorAll('p'); // just for testing styles design
+
+for (let i = 0; i < listSectors.length; i++) {
+    listSectors[i].addEventListener('mouseover', () => {
+        listSectors[i].style = 'border: solid 0.3em red;'
+    });
+    listSectors[i].addEventListener('mouseout', () => {
+        listSectors[i].style = "border: 0";
+    });
+}
+
+
 
 /** 
  * End Global Variables
@@ -55,8 +70,6 @@ window.onscroll = function() {
 // Posting comment
 const node = document.createTextNode(myTextInput);
 newSpanElem.appendChild(node);
-newSpanElem.appendChild(node);
-
 
 myButton.addEventListener("click", () => {
     newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
@@ -66,27 +79,10 @@ myButton.addEventListener("click", () => {
 })
 
 // Posting picture on comment
-
 buttonPhoto.addEventListener("click", () => {
-    newPost.insertAdjacentHTML('beforeend', myPhotoInput + "<br><br>");
-    myPhotoInput.style = "height: 50%";
+    newPost.insertAdjacentHTML('beforeend', "sorry, picture can't be desplayed now due to missing node.js " + myPhotoInput + "<br><br> ");
+    document.querySelector("form").reset();
 });
-
-
-// hover decoration for articles
-document.querySelector('div').addEventListener('mouseenter', () => {
-    let sections = document.querySelectorAll('div > p');
-    for (i = 0; i < sections.length; i++) {
-        sections[i].style = "border: outset 1px grey; border-radius: 1em; box-shadow: 1px 1px 1px black";
-    }
-});
-document.querySelector('div p').addEventListener('mouseleave', () => {
-    let sections = document.querySelectorAll('div > p');
-    for (i = 0; i < sections.length; i++) {
-        sections[i].style = "none";
-    }
-});
-
 
 
 
