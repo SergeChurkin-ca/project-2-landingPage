@@ -37,13 +37,18 @@
         <section id="section1" data-nav="Section 1" class="your-active-class">
 
             <div class="posting__container">
+                <!-- Post comment and picture-->
                 <textarea rows="3" cols="1" type="text" id="myTextInput" placeholder="Leave your comment here"></textarea>
+                <input type="text" id="nameInput" placeholder="Your name">
                 <button id="myButton">Post a comment</button>
 
-                <input type="file" class="photo">
-                <button class="photo">Post a picture to comment</button>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="myPhotoInput" name="filename">
+                </form>
+                <button id="buttonPhoto">Attach picture to comment</button>
 
             </div>
+
             <div class="landing__container">
                 <h2>Section 1</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci

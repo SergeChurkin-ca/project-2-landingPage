@@ -170,7 +170,7 @@ nav {
 }
 
 #myTextInput {
-    height: 40vh;
+    height: 20vh;
 }
 
 .posting__container input,
@@ -178,9 +178,15 @@ textarea,
 button {
     background-color: darkorange;
     width: 130hv;
-    padding: 1em;
+    padding: 0.5em;
     border: darkslategrey solid 0.1em;
     border-radius: 0.4em;
+    margin: 0 0 1em 0;
+}
+
+button {
+    border: solid 0.2em saddlebrown;
+    border-style: outset;
 }
 
 button:active {
@@ -201,6 +207,7 @@ textarea {
         justify-content: flex-start;
         align-content: stretch;
         padding: 0 5em;
+        height: 5em;
     }
     .posting__container {
         width: 80%;
@@ -209,7 +216,15 @@ textarea {
         width: 115vh;
     }
     #myTextInput {
-        height: auto;
+        height: 5em;
+        width: 30em;
+    }
+    #nameInput {
+        width: 10em;
+    }
+    #myPhotoInput {
+        width: 10em;
+        height: 5em;
     }
 }
 
