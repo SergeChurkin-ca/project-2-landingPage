@@ -18,7 +18,6 @@
  * 
  */
 
-
 const newPost = document.querySelector('[id=section4]');
 const comments = document.getElementById('section-4');
 comments.style = "display: none"
@@ -28,7 +27,7 @@ const newSpanElem = document.createElement('p');
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
 
-const myPhotoInput = document.querySelector('#myPhotoInput').files[0].path;
+const myPhotoInput = document.querySelector('#myPhotoInput').value;
 
 const myButton = document.getElementById('myButton');
 const buttonPhoto = document.getElementById('buttonPhoto');
