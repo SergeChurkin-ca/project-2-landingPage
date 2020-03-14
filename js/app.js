@@ -18,9 +18,9 @@
  * 
  */
 
-const navbarMenu = document.getElementsByTagName('li'); // NAVBAR
+const navbarMenu = document.getElementsByTagName('li'); // NAVBAR 
 
-const newPost = document.querySelector('[id=section4]');
+const newPost = document.querySelector('[id=section4]'); // Comments section - hidden by default
 const comments = document.getElementById('section-4');
 comments.style = "display: none"
 
@@ -28,6 +28,8 @@ const newSpanElem = document.createElement('p');
 
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
+
+
 const myButton = document.getElementById('myButton');
 
 const myPhotoInput = document.querySelector('#myPhotoInput').value;
@@ -46,7 +48,6 @@ for (let i = 0; i < listSectors.length; i++) {
 }
 
 
-
 /** 
  * End Global Variables
  * Start Helper Functions
@@ -54,7 +55,7 @@ for (let i = 0; i < listSectors.length; i++) {
  */
 
 
-// Smooth roolin - rollout nav
+// Smooth rooling - rollout nav
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
@@ -67,13 +68,20 @@ window.onscroll = function() {
 }
 
 
+
+
 // Posting comment
-const node = document.createTextNode(myTextInput);
-newSpanElem.appendChild(node);
+let inputFields = document.getElementsByClassName('posting__container')[0];
+inputFields.addEventListener('click', (e) => {
+    if (e.target.tagName = "INPUT") {
+        e.target.style = "background-color: rgb(181, 252, 185); border: solid: 0.5em #333";
+    }
+});
 
 myButton.addEventListener("click", () => {
     newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
     comments.style = "display: inline-block";
+    window.alert("Much appreceated! We like reading your writings! ;-)")
     myTextInput.value = "";
     nameInput.value = "";
 })
@@ -81,10 +89,21 @@ myButton.addEventListener("click", () => {
 // Posting picture on comment
 buttonPhoto.addEventListener("click", () => {
     newPost.insertAdjacentHTML('beforeend', "sorry, picture can't be desplayed now due to missing node.js " + myPhotoInput + "<br><br> ");
+    window.alert("Thank you! The picture has been uploaded :-)")
     document.querySelector("form").reset();
 });
 
 
+
+// NAVbar hover effects
+for (let i = 0; i < listSectors.length; i++) {
+    navbarMenu[i].addEventListener('mouseover', () => {
+        navbarMenu[i].style = 'border: solid 0.3em red;'
+    });
+    navbarMenu[i].addEventListener('mouseout', () => {
+        navbarMenu[i].style = "border: 0";
+    });
+}
 
 
 /**
@@ -111,7 +130,6 @@ buttonPhoto.addEventListener("click", () => {
 // Build menu 
 
 // Scroll to section on link click
-
 
 
 // Set sections as active

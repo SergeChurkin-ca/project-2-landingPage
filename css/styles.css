@@ -60,17 +60,6 @@ a {
     font-size: 2em;
 }
 
-a:hover,
-button:hover {
-    font-weight: 400;
-    color: whitesmoke;
-    position: relative;
-    text-shadow: 0.1em 0.1em 1em white;
-    bottom: 1px;
-    border: inset 0.03em;
-    border-radius: 0.2em;
-}
-
 a:active {
     font-weight: 700;
     bottom: 2em;
@@ -127,12 +116,6 @@ nav {
     padding: 1em;
     font-weight: bold;
     color: #000;
-}
-
-.navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
-    transition: ease 0.3s all;
 }
 
 @media screen and (max-width: 500px) {
