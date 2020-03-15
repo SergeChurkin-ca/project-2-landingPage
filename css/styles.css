@@ -126,8 +126,10 @@ nav {
         justify-content: center;
     }
     nav {
-        height: fit-content;
-        padding: 0%;
+        height: auto;
+        padding: auto;
+        margin: auto;
+        justify-content: flex-start;
     }
 }
 
@@ -189,18 +191,20 @@ textarea {
         flex-direction: row;
         justify-content: flex-start;
         align-content: stretch;
-        padding: 0 5em;
+        padding: auto;
+        margin: 0 2em 0 0;
         height: 5em;
     }
     .posting__container {
         width: 80%;
     }
     textarea {
+        height: auto;
         width: 115vh;
     }
     #myTextInput {
-        height: 5em;
-        width: 30em;
+        height: auto;
+        width: 40em;
     }
     #nameInput {
         width: 10em;

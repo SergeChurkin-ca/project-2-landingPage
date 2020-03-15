@@ -29,24 +29,22 @@ const newSpanElem = document.createElement('p');
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
 
-
-const myButton = document.getElementById('myButton');
-
-const myPhotoInput = document.querySelector('#myPhotoInput').value;
 const buttonPhoto = document.getElementById('buttonPhoto');
 
 
 const listSectors = document.querySelectorAll('p'); // just for testing styles design
 
+
+//Main text decoration
+
 for (let i = 0; i < listSectors.length; i++) {
     listSectors[i].addEventListener('mouseover', () => {
-        listSectors[i].style = 'border: solid 0.3em red;'
+        listSectors[i].style = 'box-shadow: 0.2em 0.2em 0.3em 0.5em silver; padding: 2em; border-radius: 0.3em';
     });
     listSectors[i].addEventListener('mouseout', () => {
-        listSectors[i].style = "border: 0";
+        listSectors[i].style = "none";
     });
 }
-
 
 /** 
  * End Global Variables
@@ -62,12 +60,10 @@ window.onscroll = function() {
     if (prevScrollpos > currentScrollPos) {
         document.querySelector("nav").style.top = "0";
     } else {
-        document.querySelector("nav").style.top = "-5em";
+        document.querySelector("nav").style.top = "-25em";
     }
     prevScrollpos = currentScrollPos;
 }
-
-
 
 
 // Posting comment
@@ -78,30 +74,30 @@ inputFields.addEventListener('click', (e) => {
     }
 });
 
+
 myButton.addEventListener("click", () => {
-    newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
-    comments.style = "display: inline-block";
-    window.alert("Much appreceated! We like reading your writings! ;-)")
-    myTextInput.value = "";
-    nameInput.value = "";
+    if (myTextInput.value && nameInput) {
+        newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
+        comments.style = "display: inline";
+        window.alert("Much appreceated! We like reading your writings! ;-)")
+        myTextInput.value = "";
+        nameInput.value = "";
+    } else {
+        window.alert("Please fill in all sections");
+    }
 })
 
-// Posting picture on comment
-buttonPhoto.addEventListener("click", () => {
-    newPost.insertAdjacentHTML('beforeend', "sorry, picture can't be desplayed now due to missing node.js " + myPhotoInput + "<br><br> ");
-    window.alert("Thank you! The picture has been uploaded :-)")
-    document.querySelector("form").reset();
-});
+//Button mouseover effects
 
 
 
 // NAVbar hover effects
 for (let i = 0; i < listSectors.length; i++) {
     navbarMenu[i].addEventListener('mouseover', () => {
-        navbarMenu[i].style = 'border: solid 0.3em red;'
+        navbarMenu[i].style = 'background-color: coral; padding: 0 1em 0; border-radius: 0.3em; border-style: outset';
     });
     navbarMenu[i].addEventListener('mouseout', () => {
-        navbarMenu[i].style = "border: 0";
+        navbarMenu[i].style = "none";
     });
 }
 
