@@ -208,6 +208,7 @@ textarea {
     }
     #nameInput {
         width: 10em;
+        height: 5em;
     }
     #myPhotoInput {
         width: 10em;

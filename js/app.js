@@ -24,15 +24,17 @@ const newPost = document.querySelector('[id=section4]'); // Comments section - h
 const comments = document.getElementById('section-4');
 comments.style = "display: none"
 
+
+
+// Main content secitons
+
 const newSpanElem = document.createElement('p');
 
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
 
-const buttonPhoto = document.getElementById('buttonPhoto');
 
-
-const listSectors = document.querySelectorAll('p'); // just for testing styles design
+const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
 
 //Main text decoration
@@ -73,8 +75,6 @@ inputFields.addEventListener('click', (e) => {
         e.target.style = "background-color: rgb(181, 252, 185); border: solid: 0.5em #333";
     }
 });
-
-
 myButton.addEventListener("click", () => {
     if (myTextInput.value && nameInput.value) {
         newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
@@ -85,21 +85,43 @@ myButton.addEventListener("click", () => {
     } else {
         window.alert("Please fill in all sections");
     }
-})
-
-//Button mouseover effects
+});
 
 
 
-// NAVbar hover effects
+// Posting button style
+myButton.addEventListener('mouseover', () => {
+    myButton.style = "box-shadow: 0.3em 0.3em 0.3em grey; color: white";
+});
+myButton.addEventListener('mouseout', () => {
+    myButton.style = "none";
+});
+
+
+
+// NAVbar + Sections hover effects
+
 for (let i = 0; i < listSectors.length; i++) {
     navbarMenu[i].addEventListener('mouseover', () => {
         navbarMenu[i].style = 'background-color: coral; padding: 0 1em 0; border-radius: 0.3em; border-style: outset';
+        listSectors[i].style = 'box-shadow: 0.2em 0.2em 0.3em 0.5em silver; padding: 2em; border-radius: 0.3em';
     });
     navbarMenu[i].addEventListener('mouseout', () => {
         navbarMenu[i].style = "none";
+        listSectors[i].style = "none";
     });
 }
+
+for (let i = 0; i < navbarMenu.length; i++) {
+    listSectors[i].addEventListener('mouseover', () => {
+        navbarMenu[i].style = 'background-color: coral; padding: 0 1em 0; border-radius: 0.3em; border-style: outset';
+        document.querySelector("nav").style.top = "0";
+    });
+    listSectors[i].addEventListener('mouseout', () => {
+        navbarMenu[i].style = 'none';
+    });
+}
+
 
 
 /**
