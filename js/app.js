@@ -76,7 +76,7 @@ inputFields.addEventListener('click', (e) => {
 
 
 myButton.addEventListener("click", () => {
-    if (myTextInput.value && nameInput) {
+    if (myTextInput.value && nameInput.value) {
         newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
         comments.style = "display: inline";
         window.alert("Much appreceated! We like reading your writings! ;-)")
