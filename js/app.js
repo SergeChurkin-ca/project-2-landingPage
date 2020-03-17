@@ -18,19 +18,35 @@
  * 
  */
 
-const seciton = document.getElementById('section');
+const section = document.getElementById('section');
+const myTextInput = document.getElementById('myTextInput');
+const nameInput = document.getElementById('nameInput');
 
-for (let i = 0; i <= 2; i++) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.classList.add('menu__link');
-    a.setAttribute('href', `#section${i + 1}`);
-    li.textContent = `Section${i + 1}`;
-    const navigation = document.getElementById('navbar__list');
-    navigation.appendChild(li)
-    li.appendChild(a);
+// Smooth rooling - rollout nav
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.querySelector("nav").style.top = "0";
+    } else {
+        document.querySelector("nav").style.top = "-25em";
+    }
+    prevScrollpos = currentScrollPos;
 }
 
+const navbarMenu = () => {
+    for (let i = 0; i <= 2; i++) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.classList.add('menu__link');
+        a.setAttribute('href', `#section${i + 1}`);
+        li.textContent = `Section${i + 1}`;
+        const navigation = document.getElementById('navbar__list');
+        navigation.appendChild(li)
+        li.appendChild(a);
+    }
+}
+navbarMenu();
 // const navbarMenu = document.getElementsByTagName('li'); // NAVBAR 
 
 const newPost = document.querySelector('[id=section4]'); // Comments section - hidden by default
@@ -40,11 +56,6 @@ comments.style = "display: none"
 
 
 // Main content secitons
-
-
-const myTextInput = document.getElementById('myTextInput');
-const nameInput = document.getElementById('nameInput');
-
 
 
 
@@ -69,17 +80,7 @@ for (let i = 0; i < listSectors.length; i++) {
  */
 
 
-// Smooth rooling - rollout nav
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.querySelector("nav").style.top = "0";
-    } else {
-        document.querySelector("nav").style.top = "-25em";
-    }
-    prevScrollpos = currentScrollPos;
-}
+
 
 
 // Posting comment
