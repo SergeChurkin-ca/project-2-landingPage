@@ -18,7 +18,20 @@
  * 
  */
 
-const navbarMenu = document.getElementsByTagName('li'); // NAVBAR 
+const seciton = document.getElementById('section');
+
+for (let i = 0; i <= 2; i++) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.classList.add('menu__link');
+    a.setAttribute('href', `#section${i + 1}`);
+    li.textContent = `Section${i + 1}`;
+    const navigation = document.getElementById('navbar__list');
+    navigation.appendChild(li)
+    li.appendChild(a);
+}
+
+// const navbarMenu = document.getElementsByTagName('li'); // NAVBAR 
 
 const newPost = document.querySelector('[id=section4]'); // Comments section - hidden by default
 const comments = document.getElementById('section-4');
@@ -28,10 +41,11 @@ comments.style = "display: none"
 
 // Main content secitons
 
-const newSpanElem = document.createElement('p');
 
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
+
+
 
 
 const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
@@ -87,8 +101,6 @@ myButton.addEventListener("click", () => {
     }
 });
 
-
-
 // Posting button style
 myButton.addEventListener('mouseover', () => {
     myButton.style = "box-shadow: 0.3em 0.3em 0.3em grey; color: white";
@@ -121,6 +133,7 @@ for (let i = 0; i < navbarMenu.length; i++) {
         navbarMenu[i].style = 'none';
     });
 }
+
 
 
 

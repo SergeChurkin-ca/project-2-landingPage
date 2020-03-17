@@ -167,6 +167,9 @@ button {
     border: darkslategrey solid 0.1em;
     border-radius: 0.4em;
     margin: 0 0 1em 0;
+    height: 5em;
+    font-size: 0.7rem;
+    text-align: left;
 }
 
 button {
@@ -204,15 +207,15 @@ textarea {
     }
     #myTextInput {
         height: auto;
-        width: 40em;
+        width: 50%;
     }
     #nameInput {
-        width: 10em;
+        width: 20%;
         height: 5em;
     }
-    #myPhotoInput {
-        width: 10em;
-        height: 5em;
+    #myButton {
+        width: 30%;
+        height: auto;
     }
 }
 
