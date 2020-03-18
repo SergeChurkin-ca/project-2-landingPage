@@ -18,7 +18,7 @@
  * 
  */
 
-const section = document.getElementById('section');
+const section = document.querySelectorAll('section');
 
 
 // Smooth rooling - rollout nav
@@ -49,9 +49,11 @@ const navbarMenu = () => {
         li.appendChild(a);
         li.addEventListener('mouseover', () => {
             li.style = "background-color: coral; border-radius: 0.5em; border: solid 0.1em";
+            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white';
         });
         li.addEventListener('mouseout', () => {
             li.style = "none";
+            listSectors[i].style = 'none';
         });
     }
 };
@@ -64,9 +66,13 @@ const yourActiveClass = document.getElementsByClassName('your-active-class')
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
 const newPost = document.createElement('newPost');
-comments = document.getElementById('seciton4');
+
+
+const comments = document.getElementById('seciton4');
 
 const myButton = document.getElementById('myButton');
+
+
 
 // Posting comment
 let inputFields = document.getElementsByClassName('posting__container')[0];
@@ -76,10 +82,11 @@ inputFields.addEventListener('click', (e) => {
     }
 });
 
+
 myButton.addEventListener("click", () => {
     if (myTextInput.value && nameInput.value) {
-
-        window.alert("Much appreceated! We like reading your writings! ;-)")
+        section4.insertAdjacentHTML('beforeend', myTextInput.value + '\n\n' + `<i>${nameInput.value}</i>` + '<br><br>');
+        window.alert("Much appreceated! We like reading your writings! ;-)");
         myTextInput.value = "";
         nameInput.value = "";
     } else {
@@ -87,10 +94,6 @@ myButton.addEventListener("click", () => {
     }
 });
 
-
-
-
-const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
 
 
@@ -131,13 +134,15 @@ myButton.addEventListener('mouseout', () => {
     });
 } */
 
-for (let i = 0; i < navbarMenu.length; i++) {
+const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
+
+for (let i = 0; i < listSectors.length; i++) {
     listSectors[i].addEventListener('mouseover', () => {
-        navbarMenu[i].style = 'background-color: coral; padding: 0 1em 0; border-radius: 0.3em; border-style: outset';
+        listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white';
         document.querySelector("nav").style.top = "0";
     });
     listSectors[i].addEventListener('mouseout', () => {
-        navbarMenu[i].style = 'none';
+        listSectors[i].style = 'none';
     });
 }
 
