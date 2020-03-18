@@ -21,6 +21,8 @@
 const section = document.querySelectorAll('section');
 const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
+const li = document.createElement('li');
+
 
 // Smooth rooling - rollout nav
 var prevScrollpos = window.pageYOffset;
@@ -50,11 +52,9 @@ const navbarMenu = () => {
         li.appendChild(a);
         li.addEventListener('mouseover', () => {
             li.style = "background-color: coral; border-radius: 0.5em; border: solid 0.1em";
-            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white; transition: ease 0.5s';
         });
         li.addEventListener('mouseout', () => {
             li.style = "none";
-            listSectors[i].style = 'none';
         });
     }
 };
@@ -86,7 +86,7 @@ inputFields.addEventListener('click', (e) => {
 myButton.addEventListener("click", () => {
     if (myTextInput.value && nameInput.value) {
         section4.insertAdjacentHTML('beforeend', myTextInput.value + '\n\n' + `<i>${nameInput.value}</i>` + '<br><br>');
-        window.alert("Much appreceated! We like reading your writings! ;-)");
+        window.alert(`Much appreceated, ${nameInput.value}! We like reading your writings! ;-)`);
         myTextInput.value = "";
         nameInput.value = "";
     } else {
@@ -111,33 +111,6 @@ myButton.addEventListener('mouseover', () => {
 myButton.addEventListener('mouseout', () => {
     myButton.style = "none";
 });
-
-
-
-// NAVbar + Sections hover effects
-
-/* for (let i = 0; i < listSectors.length; i++) {
-    navbarMenu[i].addEventListener('mouseover', () => {
-        navbarMenu[i].style = 'background-color: coral; padding: 0 1em 0; border-radius: 0.3em; border-style: outset';
-        listSectors[i].style = 'box-shadow: 0.2em 0.2em 0.3em 0.5em silver; padding: 2em; border-radius: 0.3em';
-    });
-    navbarMenu[i].addEventListener('mouseout', () => {
-        navbarMenu[i].style = "none";
-        listSectors[i].style = "none";
-    });
-} */
-
-
-/* for (let i = 0; i < listSectors.length; i++) {
-    listSectors[i].addEventListener('mouseover', () => {
-        listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white';
-        document.querySelector("nav").style.top = "0";
-    });
-    listSectors[i].addEventListener('mouseout', () => {
-        listSectors[i].style = 'none';
-    });
-} */
-
 
 
 
@@ -175,7 +148,7 @@ myButton.addEventListener('mouseout', () => {
 
 // }
 
-// check active view and define the style
+// Check active view and define the style
 window.addEventListener('scroll', () => {
     const isInViewPort = function(elem) {
         var bounding = elem.getBoundingClientRect();
@@ -186,14 +159,13 @@ window.addEventListener('scroll', () => {
             bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     }
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < section.length; i++) {
         var h2 = document.querySelectorAll('h2')[i];
-        if (isInViewPort(h2)) {
-            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white; transition: ease 0.5s';
-
+        var h1 = document.querySelector('h1');
+        if (isInViewPort(h2) || isInViewPort(h1)) {
+            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.5em; border-style: outset; box-shadow: 0.1em 0.1em 0.9em 0.2em white; transition: ease 0.7s; opacity: 2';
         } else if (!isInViewPort(h2)) {
-            section[i].style = 'none';
+            listSectors[i].style = 'none';
         }
     }
-
 })
