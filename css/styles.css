@@ -96,7 +96,7 @@ nav {
     height: 4em;
     text-shadow: 0.5em 0.5em 0.5em black;
     overflow: hidden;
-    transition: top 0.5s;
+    transition: top 0.4s;
 }
 
 .navbar__menu ul {
@@ -121,15 +121,21 @@ nav {
 @media screen and (max-width: 500px) {
     #navbar__list {
         float: none;
+        height: 0.3vh;
         display: inline-flex;
         flex-direction: column;
         justify-content: center;
+        transition: top 0.4s;
     }
     nav {
-        height: auto;
+        height: 22%;
         padding: auto;
         margin: auto;
         justify-content: flex-start;
+    }
+    li {
+        margin: 0.1em;
+        height: 5vh;
     }
 }
 

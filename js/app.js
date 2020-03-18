@@ -19,8 +19,7 @@
  */
 
 const section = document.getElementById('section');
-const myTextInput = document.getElementById('myTextInput');
-const nameInput = document.getElementById('nameInput');
+
 
 // Smooth rooling - rollout nav
 var prevScrollpos = window.pageYOffset;
@@ -34,24 +33,64 @@ window.onscroll = function() {
     prevScrollpos = currentScrollPos;
 }
 
+//Items of NAVBAR
 const navbarMenu = () => {
-    for (let i = 0; i <= 2; i++) {
+    for (let i = 0; i <= 3; i++) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.classList.add('menu__link');
         a.setAttribute('href', `#section${i + 1}`);
-        li.textContent = `Section${i + 1}`;
+        li.textContent = `Section ${i + 1}`;
         const navigation = document.getElementById('navbar__list');
         navigation.appendChild(li)
+        if (i === 3) {
+            li.textContent = `Comments`;
+        };
         li.appendChild(a);
+        li.addEventListener('mouseover', () => {
+            li.style = "background-color: coral; border-radius: 0.5em; border: solid 0.1em";
+        });
+        li.addEventListener('mouseout', () => {
+            li.style = "none";
+        });
     }
-}
+};
 navbarMenu();
-// const navbarMenu = document.getElementsByTagName('li'); // NAVBAR 
 
-const newPost = document.querySelector('[id=section4]'); // Comments section - hidden by default
-const comments = document.getElementById('section-4');
-comments.style = "display: none"
+const yourActiveClass = document.getElementsByClassName('your-active-class')
+
+
+
+const myTextInput = document.getElementById('myTextInput');
+const nameInput = document.getElementById('nameInput');
+const newPost = document.createElement('newPost');
+comments = document.getElementById('seciton4');
+
+const myButton = document.getElementById('myButton');
+
+// Posting comment
+let inputFields = document.getElementsByClassName('posting__container')[0];
+inputFields.addEventListener('click', (e) => {
+    if (e.target.tagName = "INPUT") {
+        e.target.style = "background-color: rgb(181, 252, 185); border: solid: 0.5em #333";
+    }
+});
+
+myButton.addEventListener("click", () => {
+    if (myTextInput.value && nameInput.value) {
+
+        window.alert("Much appreceated! We like reading your writings! ;-)")
+        myTextInput.value = "";
+        nameInput.value = "";
+    } else {
+        window.alert("Please fill in all sections");
+    }
+});
+
+
+
+
+const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
 
 
@@ -59,19 +98,6 @@ comments.style = "display: none"
 
 
 
-const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
-
-
-//Main text decoration
-
-for (let i = 0; i < listSectors.length; i++) {
-    listSectors[i].addEventListener('mouseover', () => {
-        listSectors[i].style = 'box-shadow: 0.2em 0.2em 0.3em 0.5em silver; padding: 2em; border-radius: 0.3em';
-    });
-    listSectors[i].addEventListener('mouseout', () => {
-        listSectors[i].style = "none";
-    });
-}
 
 /** 
  * End Global Variables
@@ -81,26 +107,6 @@ for (let i = 0; i < listSectors.length; i++) {
 
 
 
-
-
-// Posting comment
-let inputFields = document.getElementsByClassName('posting__container')[0];
-inputFields.addEventListener('click', (e) => {
-    if (e.target.tagName = "INPUT") {
-        e.target.style = "background-color: rgb(181, 252, 185); border: solid: 0.5em #333";
-    }
-});
-myButton.addEventListener("click", () => {
-    if (myTextInput.value && nameInput.value) {
-        newPost.insertAdjacentHTML('beforeend', myTextInput.value + '\n' + nameInput.value + '<br><br>');
-        comments.style = "display: inline";
-        window.alert("Much appreceated! We like reading your writings! ;-)")
-        myTextInput.value = "";
-        nameInput.value = "";
-    } else {
-        window.alert("Please fill in all sections");
-    }
-});
 
 // Posting button style
 myButton.addEventListener('mouseover', () => {
@@ -114,7 +120,7 @@ myButton.addEventListener('mouseout', () => {
 
 // NAVbar + Sections hover effects
 
-for (let i = 0; i < listSectors.length; i++) {
+/* for (let i = 0; i < listSectors.length; i++) {
     navbarMenu[i].addEventListener('mouseover', () => {
         navbarMenu[i].style = 'background-color: coral; padding: 0 1em 0; border-radius: 0.3em; border-style: outset';
         listSectors[i].style = 'box-shadow: 0.2em 0.2em 0.3em 0.5em silver; padding: 2em; border-radius: 0.3em';
@@ -123,7 +129,7 @@ for (let i = 0; i < listSectors.length; i++) {
         navbarMenu[i].style = "none";
         listSectors[i].style = "none";
     });
-}
+} */
 
 for (let i = 0; i < navbarMenu.length; i++) {
     listSectors[i].addEventListener('mouseover', () => {
