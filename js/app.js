@@ -62,9 +62,6 @@ navbarMenu();
 
 
 
-const yourActiveClass = document.getElementsByClassName('your-active-class')
-
-
 
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
@@ -98,19 +95,13 @@ myButton.addEventListener("click", () => {
 });
 
 
-
-
 // Main content secitons
-
-
-
 
 /** 
  * End Global Variables
  * Start Helper Functions
  * 
  */
-
 
 
 // Posting button style
@@ -179,12 +170,30 @@ myButton.addEventListener('mouseout', () => {
 
 // Scroll to section on link click
 
-
 // Set sections as active
 
 
-
-
-
-
 // }
+
+// check active view and define the style
+window.addEventListener('scroll', () => {
+    const isInViewPort = function(elem) {
+        var bounding = elem.getBoundingClientRect();
+        return (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    for (let i = 0; i < 5; i++) {
+        var h2 = document.querySelectorAll('h2')[i];
+        if (isInViewPort(h2)) {
+            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white; transition: ease 0.5s';
+
+        } else if (!isInViewPort(h2)) {
+            section[i].style = 'none';
+        }
+    }
+
+})
