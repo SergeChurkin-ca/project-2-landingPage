@@ -19,6 +19,7 @@
  */
 
 const section = document.querySelectorAll('section');
+const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
 
 // Smooth rooling - rollout nav
@@ -42,14 +43,14 @@ const navbarMenu = () => {
         a.setAttribute('href', `#section${i + 1}`);
         li.textContent = `Section ${i + 1}`;
         const navigation = document.getElementById('navbar__list');
-        navigation.appendChild(li)
+        navigation.appendChild(li);
         if (i === 3) {
             li.textContent = `Comments`;
         };
         li.appendChild(a);
         li.addEventListener('mouseover', () => {
             li.style = "background-color: coral; border-radius: 0.5em; border: solid 0.1em";
-            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white';
+            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white; transition: ease 0.5s';
         });
         li.addEventListener('mouseout', () => {
             li.style = "none";
@@ -58,6 +59,8 @@ const navbarMenu = () => {
     }
 };
 navbarMenu();
+
+
 
 const yourActiveClass = document.getElementsByClassName('your-active-class')
 
@@ -110,7 +113,6 @@ myButton.addEventListener("click", () => {
 
 
 
-
 // Posting button style
 myButton.addEventListener('mouseover', () => {
     myButton.style = "box-shadow: 0.3em 0.3em 0.3em grey; color: white";
@@ -134,9 +136,8 @@ myButton.addEventListener('mouseout', () => {
     });
 } */
 
-const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
-for (let i = 0; i < listSectors.length; i++) {
+/* for (let i = 0; i < listSectors.length; i++) {
     listSectors[i].addEventListener('mouseover', () => {
         listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.3em; border-style: outset; box-shadow: 0.5em 0.5em 0.5em 0.2em white';
         document.querySelector("nav").style.top = "0";
@@ -144,7 +145,7 @@ for (let i = 0; i < listSectors.length; i++) {
     listSectors[i].addEventListener('mouseout', () => {
         listSectors[i].style = 'none';
     });
-}
+} */
 
 
 
@@ -159,6 +160,10 @@ for (let i = 0; i < listSectors.length; i++) {
 
 
 // Add class 'active' to section when near top of viewport
+
+
+
+
 
 
 // Scroll to anchor ID using scrollTO event
