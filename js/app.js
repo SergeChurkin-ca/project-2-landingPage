@@ -21,10 +21,9 @@
 const section = document.querySelectorAll('section');
 const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
-const li = document.createElement('li');
 
-
-// Smooth rooling - rollout nav
+// Smooth rooling - rollout nav 
+// * https://www.w3schools.com/howto/howto_js_navbar_hide_scroll.asp
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
@@ -61,8 +60,6 @@ const navbarMenu = () => {
 navbarMenu();
 
 
-
-
 const myTextInput = document.getElementById('myTextInput');
 const nameInput = document.getElementById('nameInput');
 const newPost = document.createElement('newPost');
@@ -82,10 +79,9 @@ inputFields.addEventListener('click', (e) => {
     }
 });
 
-
 myButton.addEventListener("click", () => {
     if (myTextInput.value && nameInput.value) {
-        section4.insertAdjacentHTML('beforeend', myTextInput.value + '\n\n' + `<i>${nameInput.value}</i>` + '<br><br>');
+        section4.insertAdjacentHTML('beforeend', '<br><br>' + myTextInput.value + '\n\n' + `<i>${nameInput.value}</i>` + '<br><br>');
         window.alert(`Much appreceated, ${nameInput.value}! We like reading your writings! ;-)`);
         myTextInput.value = "";
         nameInput.value = "";
@@ -113,7 +109,6 @@ myButton.addEventListener('mouseout', () => {
 });
 
 
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -124,8 +119,6 @@ myButton.addEventListener('mouseout', () => {
 
 
 // Add class 'active' to section when near top of viewport
-
-
 
 
 
@@ -143,29 +136,30 @@ myButton.addEventListener('mouseout', () => {
 
 // Scroll to section on link click
 
-// Set sections as active
 
+
+
+// Set sections as active
 
 // }
 
-// Check active view and define the style
+// Define the style of active view
 window.addEventListener('scroll', () => {
     const isInViewPort = function(elem) {
         var bounding = elem.getBoundingClientRect();
         return (
             bounding.top >= 0 &&
             bounding.left >= 0 &&
-            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.bottom <= (window.innerHeight - 150 || document.documentElement.clientHeight - 150) &&
             bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     }
     for (let i = 0; i < section.length; i++) {
         var h2 = document.querySelectorAll('h2')[i];
-        var h1 = document.querySelector('h1');
-        if (isInViewPort(h2) || isInViewPort(h1)) {
+        if (isInViewPort(h2)) {
             listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.5em; border-style: outset; box-shadow: 0.1em 0.1em 0.9em 0.2em white; transition: ease 0.7s; opacity: 2';
         } else if (!isInViewPort(h2)) {
             listSectors[i].style = 'none';
         }
     }
-})
+});
