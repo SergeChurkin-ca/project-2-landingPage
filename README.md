@@ -1,2 +1,13 @@
 # project-2-landingPage
-Project 2 - Laning Page
+Project 2 - Landing Page
+
+Landing Page
+This project requires to build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
+
+
+The focus of project is DOM elements manipulation. 
+Major styling of active elements are intended to be implemented in .js file for practice purposes.
+Navigation is built dynamically.
+Sectors change the style based on active view.
+Comments section allows to post comment and name.
+Transitions and scroll are smooth.
