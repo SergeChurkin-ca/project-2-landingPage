@@ -17,12 +17,15 @@
  * Define Global Variables
  * 
  */
+const myTextInput = document.getElementById('myTextInput');
+const nameInput = document.getElementById('nameInput');
+const myButton = document.getElementById('myButton');
 
 const section = document.querySelectorAll('section');
 const listSectors = document.querySelectorAll('.landing__container'); // just for testing styles design
 
 
-// Smooth rooling - rollout nav 
+// Navbar folds and unfolds on scroll
 // * https://www.w3schools.com/howto/howto_js_navbar_hide_scroll.asp
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
@@ -35,13 +38,15 @@ window.onscroll = function() {
     prevScrollpos = currentScrollPos;
 }
 
-//Items of NAVBAR
+// dynamic navbar, with hover style effects in scrollIntoView,
+// last changes the text content to 'comments'
 const navbarMenu = () => {
     for (let i = 0; i <= 3; i++) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.classList.add('menu__link');
         a.setAttribute('href', `#section${i + 1}`);
+        a.scrollIntoView({ behavior: "smooth" });
         li.textContent = `Section ${i + 1}`;
         const navigation = document.getElementById('navbar__list');
         navigation.appendChild(li);
@@ -59,19 +64,7 @@ const navbarMenu = () => {
 };
 navbarMenu();
 
-
-const myTextInput = document.getElementById('myTextInput');
-const nameInput = document.getElementById('nameInput');
-const newPost = document.createElement('newPost');
-
-
-const comments = document.getElementById('seciton4');
-
-const myButton = document.getElementById('myButton');
-
-
-
-// Posting comment
+// Posting comment, text and name appears in seciton4 - Comments
 let inputFields = document.getElementsByClassName('posting__container')[0];
 inputFields.addEventListener('click', (e) => {
     if (e.target.tagName = "INPUT") {
@@ -79,6 +72,7 @@ inputFields.addEventListener('click', (e) => {
     }
 });
 
+// Posting button ackonwledges values or asks to imput all fields
 myButton.addEventListener("click", () => {
     if (myTextInput.value && nameInput.value) {
         section4.insertAdjacentHTML('beforeend', '<br><br>' + myTextInput.value + '\n\n' + `<i>${nameInput.value}</i>` + '<br><br>');
@@ -91,14 +85,6 @@ myButton.addEventListener("click", () => {
 });
 
 
-// Main content secitons
-
-/** 
- * End Global Variables
- * Start Helper Functions
- * 
- */
-
 
 // Posting button style
 myButton.addEventListener('mouseover', () => {
@@ -109,40 +95,7 @@ myButton.addEventListener('mouseout', () => {
 });
 
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
- */
-
-// build the nav
-
-
 // Add class 'active' to section when near top of viewport
-
-
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
- */
-
-// Build menu 
-
-// Scroll to section on link click
-
-
-
-
-// Set sections as active
-
-// }
-
 // Define the style of active view
 window.addEventListener('scroll', () => {
     const isInViewPort = function(elem) {
@@ -155,11 +108,15 @@ window.addEventListener('scroll', () => {
         );
     }
     for (let i = 0; i < section.length; i++) {
+        const addСlassActive = document.querySelectorAll('div')[i + 1];
         var h2 = document.querySelectorAll('h2')[i];
         if (isInViewPort(h2)) {
-            listSectors[i].style = 'padding: 0 1em 0; border-radius: 0.5em; border-style: outset; box-shadow: 0.1em 0.1em 0.9em 0.2em white; transition: ease 0.7s; opacity: 2';
+            addСlassActive.classList.add('active');
+            addСlassActive.style = 'padding: 0 1em 0; border-radius: 0.5em; border-style: outset; box-shadow: 0.1em 0.1em 0.9em 0.2em white; transition: ease 0.7s; opacity: 2';
         } else if (!isInViewPort(h2)) {
-            listSectors[i].style = 'none';
+            // listSectors[i].style = 'none';
+            addСlassActive.classList.remove('active')
+            addСlassActive.style = "none";
         }
     }
 });
