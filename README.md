@@ -1,5 +1,5 @@
 # project-2-landingPage
-https://sergechurkin-ca.github.io/project-2-landingPage/index.html#section3
+https://sergechurkin-ca.github.io/project-2-landingPage/index.html
 
 Project 2 - Landing Page
 
