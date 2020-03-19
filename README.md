@@ -20,7 +20,7 @@ The project should have a structure as floows:
 
 css - styles.css    
 html - index.html
-js- app.js
+js - app.js
 README.md
 
 # Usability
