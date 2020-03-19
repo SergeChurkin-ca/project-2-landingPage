@@ -11,3 +11,20 @@ Navigation is built dynamically.
 Sectors change the style based on active view.
 Comments section allows to post comment and name.
 Transitions and scroll are smooth.
+
+# Requirements 
+Architecture
+
+The project should have a structure as floows:
+
+css
+- styles.css    
+index.html
+js
+- app.js
+README.md
+
+# Usability
+
+All features are usable across modern desktop, tablet, and phone browsers.
+
