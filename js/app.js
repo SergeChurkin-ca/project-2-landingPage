@@ -96,6 +96,8 @@ myButton.addEventListener('mouseout', () => {
 
 // Add class 'active' to section when near top of viewport
 // Define the style of active view and indicate in navbar
+
+// * https://wordpress.org/support/topic/conflict-when-hiding-navbar-when-scrolling/
 window.addEventListener('scroll', () => {
     const isInViewPort = function(elem) {
         var bounding = elem.getBoundingClientRect();
