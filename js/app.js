@@ -72,7 +72,7 @@ inputFields.addEventListener('click', (e) => {
     }
 });
 
-// Posting button ackonwledges values or asks to imput all fields
+// Posting button ackonwledges values or asks to fill in all fields
 myButton.addEventListener("click", () => {
     if (myTextInput.value && nameInput.value) {
         section4.insertAdjacentHTML('beforeend', '<br><br>' + myTextInput.value + '\n\n' + `<i>${nameInput.value}</i>` + '<br><br>');
@@ -85,7 +85,6 @@ myButton.addEventListener("click", () => {
 });
 
 
-
 // Posting button style
 myButton.addEventListener('mouseover', () => {
     myButton.style = "box-shadow: 0.3em 0.3em 0.3em grey; color: white";
@@ -96,7 +95,7 @@ myButton.addEventListener('mouseout', () => {
 
 
 // Add class 'active' to section when near top of viewport
-// Define the style of active view
+// Define the style of active view and indicate in navbar
 window.addEventListener('scroll', () => {
     const isInViewPort = function(elem) {
         var bounding = elem.getBoundingClientRect();
@@ -109,14 +108,18 @@ window.addEventListener('scroll', () => {
     }
     for (let i = 0; i < section.length; i++) {
         const addСlassActive = document.querySelectorAll('div')[i + 1];
+        const addNavActive = document.querySelectorAll('li')[i];
         var h2 = document.querySelectorAll('h2')[i];
         if (isInViewPort(h2)) {
             addСlassActive.classList.add('active');
+            addNavActive.classList.add('active-nav')
             addСlassActive.style = 'padding: 0 1em 0; border-radius: 0.5em; border-style: outset; box-shadow: 0.1em 0.1em 0.9em 0.2em white; transition: ease 0.7s; opacity: 2';
+            addNavActive.style = "background-color: coral; border-radius: 0.5em; border: solid 0.1em";
         } else if (!isInViewPort(h2)) {
-            // listSectors[i].style = 'none';
             addСlassActive.classList.remove('active')
+            addNavActive.classList.remove('active')
             addСlassActive.style = "none";
+            addNavActive.style = "none";
         }
     }
 });
